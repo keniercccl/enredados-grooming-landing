@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-pink: #ec1e7a;
+  --color-brand-teal: #1bb8ba;
+  --color-brand-yellow: #ffe600;
+}
+
+body {
+  margin: 0;
+}
