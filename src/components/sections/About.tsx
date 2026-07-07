@@ -1,4 +1,5 @@
 import Container from '@/components/common/Container'
+import SectionHeading from '@/components/common/SectionHeading'
 import aboutImage from '@/assets/images/about/paola-sobre-ella.jpg'
 
 function About() {
@@ -15,13 +16,7 @@ function About() {
         />
 
         <div className="text-center lg:text-left">
-          <span className="inline-block rounded-full bg-brand-pink/10 px-4 py-1 text-sm font-semibold text-brand-pink">
-            Sobre ella
-          </span>
-
-          <h2 className="mt-4 text-3xl font-bold text-neutral-900 sm:text-4xl">
-            Paola Álvarez
-          </h2>
+          <SectionHeading eyebrow="Sobre ella" title="Paola Álvarez" />
 
           <p className="mt-2 text-sm font-medium text-brand-teal">
             📍 Atiende en zona Norte de Bogotá (Usaquén, Chapinero, Suba) y en
