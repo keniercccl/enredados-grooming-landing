@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Fotos originales sin procesar (staging local, no se versionan)
+src/assets/images/_raw/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
