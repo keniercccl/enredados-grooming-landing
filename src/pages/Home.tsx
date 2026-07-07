@@ -1,8 +1,11 @@
+import Hero from '@/components/sections/Hero'
+import About from '@/components/sections/About'
+
 function Home() {
   return (
     <main>
-      <h1 className="text-brand-teal">Enrededados Grooming</h1>
-      <p>Página de inicio — contenido pendiente por sprint.</p>
+      <Hero />
+      <About />
     </main>
   )
 }
