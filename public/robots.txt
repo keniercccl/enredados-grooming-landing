@@ -1,0 +1,5 @@
+# Sitio temporal en GitHub Pages: se bloquea la indexacion hasta que
+# el negocio tenga su dominio definitivo. Quitar este bloqueo (o
+# reemplazarlo por un Allow) cuando se publique en el dominio final.
+User-agent: *
+Disallow: /
