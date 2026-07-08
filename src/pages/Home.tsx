@@ -4,6 +4,8 @@ import Services from '@/components/sections/Services'
 import Gallery from '@/components/sections/Gallery'
 import Coverage from '@/components/sections/Coverage'
 import Booking from '@/components/sections/Booking'
+import FAQ from '@/components/sections/FAQ'
+import Contact from '@/components/sections/Contact'
 
 function Home() {
   return (
@@ -14,6 +16,8 @@ function Home() {
       <Gallery />
       <Coverage />
       <Booking />
+      <FAQ />
+      <Contact />
     </main>
   )
 }
