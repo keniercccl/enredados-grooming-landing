@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import Container from '@/components/common/Container'
 import { getWhatsAppLink } from '@/utils/whatsapp'
 
+// Código Café aun no tiene sitio propio. Cuando lo tengan, solo hay que
+// completar esta URL y el credito del footer se vuelve un link automaticamente.
+const CODIGO_CAFE_URL = ''
+
 function Footer() {
   const year = new Date().getFullYear()
 
@@ -44,7 +48,22 @@ function Footer() {
       </Container>
 
       <div className="border-t border-white/10 py-4 text-center text-xs text-white/60">
-        © {year} Enrededados Grooming. Todos los derechos reservados.
+        <p>© {year} Enrededados Grooming. Todos los derechos reservados.</p>
+        <p className="mt-1">
+          Creado por{' '}
+          {CODIGO_CAFE_URL ? (
+            <a
+              href={CODIGO_CAFE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold hover:underline"
+            >
+              Código Café
+            </a>
+          ) : (
+            <span className="font-semibold">Código Café</span>
+          )}
+        </p>
       </div>
     </footer>
   )
