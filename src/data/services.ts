@@ -1,4 +1,12 @@
-import { BathIcon, ScissorsIcon, PawIcon, EarIcon, BrushIcon } from '@/components/common/icons'
+import {
+  BathIcon,
+  ScissorsIcon,
+  PawIcon,
+  EarIcon,
+  BrushIcon,
+  VetIcon,
+  DaycareIcon,
+} from '@/components/common/icons'
 import type { Service } from '@/types/service'
 
 export const services: Service[] = [
@@ -34,5 +42,19 @@ export const services: Service[] = [
     description:
       'Manejo de la muda de pelo en razas de doble capa, para reducir la caída de pelo en casa.',
     icon: BrushIcon,
+  },
+  {
+    id: 'veterinario-domicilio',
+    title: 'Veterinario a domicilio',
+    description:
+      'Coordinamos veterinario a domicilio con aliados de confianza. Pregúntanos por WhatsApp y te contamos cómo funciona.',
+    icon: VetIcon,
+  },
+  {
+    id: 'guarderia',
+    title: 'Guardería',
+    description:
+      'Coordinamos cuidado tipo guardería para tu mascota con aliados de confianza. Pregúntanos por WhatsApp y te contamos cómo funciona.',
+    icon: DaycareIcon,
   },
 ]

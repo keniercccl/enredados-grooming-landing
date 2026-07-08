@@ -53,6 +53,26 @@ export function EarIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+export function VetIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <rect x="3" y="8" width="18" height="12" rx="2" />
+      <path d="M8 8V6a4 4 0 0 1 8 0v2" />
+      <path d="M12 12v4M10 14h4" />
+    </svg>
+  )
+}
+
+export function DaycareIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <path d="M4 11 12 4l8 7" />
+      <path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9" />
+      <path d="M9.5 15.5a2.5 2.5 0 0 1 5 0" />
+    </svg>
+  )
+}
+
 export function ImageIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...defaultProps} {...props}>
