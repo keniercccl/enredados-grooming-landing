@@ -12,7 +12,7 @@ function BeforeAfterPlaceholder() {
           key={label}
           className="flex aspect-square flex-col items-center justify-center gap-2 bg-neutral-50 p-4"
         >
-          <ImageIcon className="h-8 w-8 text-neutral-300" />
+          <ImageIcon className="h-8 w-8 text-neutral-300" aria-hidden="true" />
           <span className="text-xs font-semibold tracking-wide text-neutral-400 uppercase">
             {label}
           </span>

@@ -24,7 +24,7 @@ function Services() {
                 className="flex flex-col rounded-2xl bg-neutral-50 p-6 shadow-sm"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-teal/10 text-brand-teal">
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-lg font-bold text-neutral-900">
                   {service.title}
