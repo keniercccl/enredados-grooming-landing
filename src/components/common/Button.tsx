@@ -17,7 +17,7 @@ type ButtonProps =
     })
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-brand-yellow text-neutral-900 hover:brightness-95',
+  primary: 'bg-brand-pink-dark text-white hover:brightness-110',
   secondary: 'bg-brand-teal text-white hover:brightness-110',
 }
 
