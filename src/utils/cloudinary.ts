@@ -5,7 +5,8 @@ const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME as string | undefi
 const TAG_BEFORE = 'galeria-antes'
 const TAG_AFTER = 'galeria-despues'
 
-const DELIVERY_TRANSFORM = 'w_800,h_800,c_fill,g_auto,f_auto,q_auto'
+const CARD_TRANSFORM = 'w_800,h_800,c_fill,g_auto,f_auto,q_auto'
+const LIGHTBOX_TRANSFORM = 'w_1600,c_limit,f_auto,q_auto'
 
 const ACCENTED_CHARS: Record<string, string> = {
   á: 'a',
@@ -28,6 +29,10 @@ interface CloudinaryResource {
 
 interface CloudinaryListResponse {
   resources: CloudinaryResource[]
+}
+
+export function isCloudinaryConfigured(): boolean {
+  return Boolean(CLOUD_NAME)
 }
 
 async function getResourcesByTag(tag: string): Promise<CloudinaryResource[]> {
@@ -60,7 +65,11 @@ function normalizePetName(name: string): string {
 }
 
 function buildImageUrl(publicId: string): string {
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${DELIVERY_TRANSFORM}/${encodeURIComponent(publicId)}`
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${CARD_TRANSFORM}/${encodeURIComponent(publicId)}`
+}
+
+function buildLightboxImageUrl(publicId: string): string {
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${LIGHTBOX_TRANSFORM}/${encodeURIComponent(publicId)}`
 }
 
 export async function fetchGalleryPairs(): Promise<GalleryPair[]> {
@@ -72,7 +81,15 @@ export async function fetchGalleryPairs(): Promise<GalleryPair[]> {
   const beforeByName = new Map<string, CloudinaryResource>()
   for (const resource of beforeResources) {
     const petName = extractPetName(resource)
-    if (petName) beforeByName.set(normalizePetName(petName), resource)
+    if (!petName) continue
+
+    const normalized = normalizePetName(petName)
+    if (beforeByName.has(normalized)) {
+      console.warn(
+        `[Galería] Hay más de una foto "antes" con el nombre "${petName}" — solo se usa la última. Revisa los Title/Caption en Cloudinary.`,
+      )
+    }
+    beforeByName.set(normalized, resource)
   }
 
   const pairs: GalleryPair[] = []
@@ -84,11 +101,15 @@ export async function fetchGalleryPairs(): Promise<GalleryPair[]> {
     const beforeResource = beforeByName.get(normalized)
     if (!beforeResource) continue
 
+    // El id usa el public_id (garantizado unico por Cloudinary) en vez del
+    // nombre de la mascota, que es texto libre y puede repetirse.
     pairs.push({
-      id: normalized,
+      id: afterResource.public_id,
       petName,
       beforeUrl: buildImageUrl(beforeResource.public_id),
       afterUrl: buildImageUrl(afterResource.public_id),
+      beforeLightboxUrl: buildLightboxImageUrl(beforeResource.public_id),
+      afterLightboxUrl: buildLightboxImageUrl(afterResource.public_id),
     })
   }
 

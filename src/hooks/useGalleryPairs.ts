@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { fetchGalleryPairs } from '@/utils/cloudinary'
+import { fetchGalleryPairs, isCloudinaryConfigured } from '@/utils/cloudinary'
 import type { GalleryPair } from '@/types/gallery'
 
-type GalleryStatus = 'loading' | 'success' | 'error' | 'empty'
+type GalleryStatus = 'loading' | 'success' | 'error' | 'empty' | 'misconfigured'
 
 interface CachedPairs {
   pairs: GalleryPair[]
@@ -41,6 +41,14 @@ export function useGalleryPairs() {
 
   useEffect(() => {
     let cancelled = false
+
+    if (!isCloudinaryConfigured()) {
+      console.warn(
+        '[Galería] VITE_CLOUDINARY_CLOUD_NAME no está definida — revisa Settings → Secrets and variables → Actions → Variables.',
+      )
+      setStatus('misconfigured')
+      return
+    }
 
     const cached = readCache()
     if (cached) {
