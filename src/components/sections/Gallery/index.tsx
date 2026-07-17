@@ -1,13 +1,16 @@
+import { useState } from 'react'
 import Container from '@/components/common/Container'
 import SectionHeading from '@/components/common/SectionHeading'
 import GalleryPlaceholderCard from './GalleryPlaceholderCard'
 import GalleryCarousel from './GalleryCarousel'
+import GalleryLightbox from './GalleryLightbox'
 import { useGalleryPairs } from '@/hooks/useGalleryPairs'
 
 const LOADING_PLACEHOLDER_COUNT = 4
 
 function Gallery() {
   const { pairs, status } = useGalleryPairs()
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
     <section id="galeria" className="bg-neutral-50 py-16 lg:py-24">
@@ -42,10 +45,18 @@ function Gallery() {
           )}
 
           {status === 'success' && (
-            <GalleryCarousel pairs={pairs} onCardClick={() => {}} />
+            <GalleryCarousel pairs={pairs} onCardClick={setLightboxIndex} />
           )}
         </div>
       </Container>
+
+      {lightboxIndex !== null && (
+        <GalleryLightbox
+          pairs={pairs}
+          initialIndex={lightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </section>
   )
 }
