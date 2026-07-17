@@ -9,6 +9,22 @@ const defaultProps: SVGProps<SVGSVGElement> = {
   strokeLinejoin: 'round',
 }
 
+export function ChevronLeftIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <path d="m15 6-6 6 6 6" />
+    </svg>
+  )
+}
+
+export function ChevronRightIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...defaultProps} {...props}>
+      <path d="m9 6 6 6-6 6" />
+    </svg>
+  )
+}
+
 export function BathIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...defaultProps} {...props}>
