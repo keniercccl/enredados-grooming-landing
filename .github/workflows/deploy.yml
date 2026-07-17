@@ -37,6 +37,8 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          VITE_CLOUDINARY_CLOUD_NAME: ${{ vars.VITE_CLOUDINARY_CLOUD_NAME }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
