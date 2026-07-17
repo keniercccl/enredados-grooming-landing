@@ -6,9 +6,10 @@ import type { GalleryPair } from '@/types/gallery'
 
 interface GalleryCarouselProps {
   pairs: GalleryPair[]
+  onCardClick: (index: number) => void
 }
 
-function GalleryCarousel({ pairs }: GalleryCarouselProps) {
+function GalleryCarousel({ pairs, onCardClick }: GalleryCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: pairs.length > 1 })
   const [selectedIndex, setSelectedIndex] = useState(0)
 
@@ -29,12 +30,12 @@ function GalleryCarousel({ pairs }: GalleryCarouselProps) {
   }, [emblaApi])
 
   return (
-    <div>
+    <div className="mx-auto w-full max-w-md sm:max-w-lg">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {pairs.map((pair) => (
-            <div key={pair.id} className="min-w-0 flex-[0_0_100%] px-2 sm:flex-[0_0_50%]">
-              <GalleryCard pair={pair} />
+          {pairs.map((pair, index) => (
+            <div key={pair.id} className="min-w-0 flex-[0_0_100%] px-2">
+              <GalleryCard pair={pair} onOpen={() => onCardClick(index)} />
               <p className="mt-2 text-center text-sm font-medium text-neutral-600">
                 {pair.petName}
               </p>

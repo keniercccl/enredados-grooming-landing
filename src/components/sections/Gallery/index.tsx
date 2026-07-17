@@ -20,7 +20,7 @@ function Gallery() {
           accent="yellow"
         />
 
-        <div className="mt-12" aria-live="polite">
+        <div className="mt-12" data-gallery-status={status} aria-live="polite">
           {status === 'loading' && (
             <div className="grid gap-6 sm:grid-cols-2">
               {Array.from({ length: LOADING_PLACEHOLDER_COUNT }).map((_, index) => (
@@ -29,7 +29,7 @@ function Gallery() {
             </div>
           )}
 
-          {status === 'error' && (
+          {(status === 'error' || status === 'misconfigured') && (
             <div className="mx-auto max-w-sm">
               <GalleryPlaceholderCard message="No pudimos cargar las fotos en este momento. Intenta de nuevo más tarde." />
             </div>
@@ -41,7 +41,9 @@ function Gallery() {
             </div>
           )}
 
-          {status === 'success' && <GalleryCarousel pairs={pairs} />}
+          {status === 'success' && (
+            <GalleryCarousel pairs={pairs} onCardClick={() => {}} />
+          )}
         </div>
       </Container>
     </section>

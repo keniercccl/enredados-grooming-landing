@@ -3,4 +3,6 @@ export interface GalleryPair {
   petName: string
   beforeUrl: string
   afterUrl: string
+  beforeLightboxUrl: string
+  afterLightboxUrl: string
 }
