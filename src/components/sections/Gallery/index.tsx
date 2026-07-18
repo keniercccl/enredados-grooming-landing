@@ -20,7 +20,7 @@ function Gallery() {
           title="Transformaciones antes y después"
           description="Fotos reales de perros y gatos consentidos por Enrededados Grooming."
           align="center"
-          accent="yellow"
+          accent="teal"
         />
 
         <div className="mt-12" data-gallery-status={status} aria-live="polite">

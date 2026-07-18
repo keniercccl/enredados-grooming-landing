@@ -24,12 +24,11 @@ function About() {
           </p>
 
           <p className="mt-6 text-lg text-neutral-600">
-            Soy Paola Álvarez, groomer profesional de perros y gatos en
-            Bogotá. Llevo <strong>[X años]</strong> cuidando mascotas con la
-            misma paciencia y cariño que le daría a las mías: baños
-            relajantes, cortes a la medida de cada raza, y mucha calma para
-            que la experiencia sea segura y libre de estrés — ya sea en el
-            spa o directamente en la comodidad de tu casa.
+            Hola, soy Paola Álvarez, groomer profesional de perros y gatos en Bogotá.
+            Desde hace más de <strong>6 años</strong> ayudo a que las mascotas luzcan y se sientan mejor
+            a través de baños, cortes personalizados y un manejo respetuoso que prioriza 
+            su tranquilidad y bienestar. Atiendo tanto en spa como a domicilio en el norte
+            de Bogotá, siempre con dedicación, paciencia y el cariño que cada mascota merece.
           </p>
         </div>
       </Container>
