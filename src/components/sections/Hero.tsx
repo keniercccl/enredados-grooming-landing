@@ -1,7 +1,7 @@
 import Container from '@/components/common/Container'
 import Button from '@/components/common/Button'
 import { getWhatsAppLink } from '@/utils/whatsapp'
-import heroImage from '@/assets/images/hero/paola-hero.png'
+import heroImage from '@/assets/images/hero/paola-hero.jpg'
 
 function Hero() {
   return (
