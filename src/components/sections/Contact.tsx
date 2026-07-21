@@ -15,7 +15,7 @@ function Contact() {
         </h2>
 
         <p className="mt-4 text-white/80">
-          Horario de atención: <strong>[Horario de atención]</strong>
+          Horario de atención: <strong>[Martes 9:00 a 18:00]</strong>
         </p>
 
         <div className="mt-8">
